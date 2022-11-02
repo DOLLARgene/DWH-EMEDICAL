@@ -26,7 +26,7 @@ class _HomeMedicalState extends State<HomeMedical> {
                 FontAwesomeIcons.bars,
                 color: Colors.blue,
                 //fontweight: FontWeight.bold,
-              )
+              ),
             ],
           ),
           actions: [

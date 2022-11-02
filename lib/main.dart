@@ -1,3 +1,4 @@
+import 'package:emedical/models/menu.dart';
 import 'package:emedical/views/home_medical.dart';
 import 'package:emedical/views/home.dart';
 import 'package:emedical/auth/sign_up.dart';
@@ -54,7 +55,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Column(
+          child: Image(
+            image: AssetImage("assets/imgs/img1.png"),
+          ),
+          /*child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Center(
@@ -68,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ],
-          ),
+          ),*/
         ),
       ),
     );
