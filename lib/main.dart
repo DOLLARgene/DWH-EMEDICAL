@@ -1,4 +1,4 @@
-import 'package:emedical/models/menu.dart';
+//import 'package:emedical/models/menu.dart';
 import 'package:emedical/views/home_medical.dart';
 import 'package:emedical/views/home.dart';
 import 'package:emedical/auth/sign_up.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'E_medical',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 10), () {
       Navigator.of(context).pushNamed(Login.routeName);
     });
   }
@@ -55,10 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         body: Center(
-          child: Image(
-            image: AssetImage("assets/imgs/img1.png"),
-          ),
-          /*child: Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Center(
@@ -71,8 +68,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
               ),
+              /*Image(
+                image: AssetImage("assets/imgs/img1.png"),
+              ),*/
             ],
-          ),*/
+          ),
         ),
       ),
     );
