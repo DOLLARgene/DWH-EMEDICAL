@@ -1,3 +1,4 @@
+import 'package:emedical/auth/forget_password.dart';
 import 'package:emedical/auth/sign_up.dart';
 import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/components/custom_textformfield.dart';
@@ -19,6 +20,10 @@ class Login extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              Text(
+                "Page de connexion",
+                style: TextStyle(color: Colors.blue, fontSize: 28.0),
+              ),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -44,7 +49,10 @@ class Login extends StatelessWidget {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context)
+                            .pushNamed(ForgetPassword.routeName);
+                      },
                       child: Text(
                         'Mots de passe oublié',
                         style: TextStyle(
@@ -62,6 +70,12 @@ class Login extends StatelessWidget {
                     action: () {
                       Navigator.of(context).pushNamed(HomeMedical.routeName);
                     },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 30.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -73,14 +87,21 @@ class Login extends StatelessWidget {
                   CustomButton(
                     buttonContent: "Connexion avec Google",
                     action: () {},
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 40.0, vertical: 20.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                    ),
                   )
                 ],
               ),
               TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(SignUp.routeName);
-                  },
-                  child: Text('Pas de compte? Inscrivez-vous.'))
+                onPressed: () {
+                  Navigator.of(context).pushNamed(SignUp.routeName);
+                },
+                child: Text('Pas de compte? Inscrivez-vous.'),
+              ),
             ],
           ),
         ),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatefulWidget {
@@ -16,7 +18,10 @@ class _NotificationsPageState extends State<NotificationsPage> {
 
   PreferredSizeWidget appBar() {
     return AppBar(
-      title: Text("Notifications page"),
+      title: Text(
+        "Notifications page",
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      ),
     );
   }
 
@@ -77,14 +82,14 @@ class _NotificationsPageState extends State<NotificationsPage> {
         maxLines: 3,
         overflow: TextOverflow.ellipsis,
         text: TextSpan(
-            text: 'message',
+            text: 'message ',
             style: TextStyle(
                 fontSize: textSize,
                 color: Colors.black,
                 fontWeight: FontWeight.bold),
             children: [
               TextSpan(
-                  text: 'notification description',
+                  text: ' notification description',
                   style: TextStyle(fontWeight: FontWeight.w600))
             ]),
       ),
@@ -98,7 +103,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text("23-15-54", style: TextStyle(fontSize: 10.0)),
-          Text("13-15-54", style: TextStyle(fontSize: 10.0)),
+          Text("13-25-54", style: TextStyle(fontSize: 10.0)),
         ],
       ),
     );

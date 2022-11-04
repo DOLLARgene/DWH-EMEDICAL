@@ -1,4 +1,10 @@
 //import 'package:emedical/models/menu.dart';
+import 'package:emedical/auth/new_password.dart';
+import 'package:sms_autofill/sms_autofill.dart';
+import 'package:emedical/auth/enter_code.dart';
+import 'package:emedical/auth/set_password_sms.dart';
+import 'package:emedical/auth/set_password_email.dart';
+import 'package:emedical/auth/forget_password.dart';
 import 'package:emedical/views/home_medical.dart';
 import 'package:emedical/views/home.dart';
 import 'package:emedical/auth/sign_up.dart';
@@ -28,6 +34,11 @@ class MyApp extends StatelessWidget {
         SignUp.routeName: (_) => const SignUp(),
         Home.routeName: (_) => const Home(),
         HomeMedical.routeName: (_) => const HomeMedical(),
+        ForgetPassword.routeName: (_) => const ForgetPassword(),
+        SetPasswordEmail.routeName: (_) => const SetPasswordEmail(),
+        SetPasswordSms.routeName: (_) => const SetPasswordSms(),
+        EnterCode.routeName: (_) => const EnterCode(),
+        NewPassword.routeName: (_) => const NewPassword(),
       },
       debugShowCheckedModeBanner: false,
     );

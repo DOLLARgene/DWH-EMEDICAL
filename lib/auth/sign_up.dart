@@ -72,10 +72,17 @@ class SignUp extends StatelessWidget {
               ),
               Gap(20.0),
               CustomButton(
-                  buttonContent: "Valider",
-                  action: () {
-                    Navigator.of(context).pushNamed(HomeMedical.routeName);
-                  }),
+                buttonContent: "Valider",
+                action: () {
+                  Navigator.of(context).pushNamed(HomeMedical.routeName);
+                },
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                ),
+              ),
             ],
           ),
         ),

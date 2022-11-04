@@ -7,6 +7,7 @@ class CustomButton extends StatelessWidget {
     Key? key,
     required this.buttonContent,
     required this.action,
+    required ButtonStyle style,
   }) : super(key: key);
 
   @override
@@ -14,6 +15,10 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: action,
       child: Text(buttonContent),
+      style: ElevatedButton.styleFrom(
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      ),
     );
   }
 }
