@@ -118,7 +118,6 @@ class _AuthState extends State<Auth> {
       ),
     );
   }
-
   void listenSms() async {
     await SmsAutoFill().listenForCode;
   }

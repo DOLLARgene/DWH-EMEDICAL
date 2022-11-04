@@ -5,7 +5,7 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("Dashboard Page"),
+        child: Text("profil Page"),
       ),
     );
   }

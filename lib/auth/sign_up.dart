@@ -36,7 +36,7 @@ class SignUp extends StatelessWidget {
               ),
               SizedBox(height: 20.0),
               CustomTextFormField(
-                htinText: "Prenom",
+                htinText: "Prenoms",
                 inputType: InputType.text,
               ),
               Gap(20.0),
@@ -80,7 +80,7 @@ class SignUp extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
+                      borderRadius: BorderRadius.circular(20.0)),
                 ),
               ),
             ],

@@ -6,12 +6,11 @@ import 'package:gap/gap.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import "package:emedical/menu/privacy_policy.dart";
-import "package:emedical/menu/send_feedback.dart";
-import "package:emedical/menu/settings.dart";
-import 'package:emedical/menu/contacts.dart';
-import 'package:emedical/menu/dashboard.dart';
+import 'package:emedical/menu/parametres.dart';
+import 'package:emedical/menu/abonnement.dart';
+import 'package:emedical/menu/profil.dart';
 import 'package:emedical/views/my_drawer_header.dart';
-import 'package:emedical/menu/notes.dart';
+import 'package:emedical/menu/helps.dart';
 import 'package:emedical/menu/notifications.dart';
 
 class HomeMedical extends StatefulWidget {
@@ -23,26 +22,24 @@ class HomeMedical extends StatefulWidget {
 }
 
 class _HomeMedicalState extends State<HomeMedical> {
-  var currentPage = DrawerSections.dashboard;
+  var currentPage = DrawerSections.profil;
   Icon customIcon = Icon(Icons.search);
   Widget customSeachBar = Text("appbar");
   @override
   Widget build(BuildContext context) {
     var container;
-    if (currentPage == DrawerSections.dashboard) {
+    if (currentPage == DrawerSections.profil) {
       container = DashboardPage();
-    } else if (currentPage == DrawerSections.contacts) {
+    } else if (currentPage == DrawerSections.abonnement) {
       container = ContactsPage();
-    } else if (currentPage == DrawerSections.notes) {
-      container = NotesPage();
-    } else if (currentPage == DrawerSections.settings) {
+    } else if (currentPage == DrawerSections.helps) {
+      container = HelpPage();
+    } else if (currentPage == DrawerSections.parametres) {
       container = SettingsPage();
     } else if (currentPage == DrawerSections.notifications) {
       container = NotificationsPage();
     } else if (currentPage == DrawerSections.privacy_policy) {
       container = PrivacyPolicyPage();
-    } else if (currentPage == DrawerSections.send_feedback) {
-      container = SendFeedbackPage();
     }
     return SafeArea(
       child: Scaffold(
@@ -326,22 +323,20 @@ class _HomeMedicalState extends State<HomeMedical> {
       child: Column(
         // shows the list of menu drawer
         children: [
-          menuItem(1, "Dashboard", Icons.dashboard_outlined,
-              currentPage == DrawerSections.dashboard ? true : false),
-          menuItem(2, "Contacts", Icons.people_alt_outlined,
-              currentPage == DrawerSections.contacts ? true : false),
-          menuItem(3, "Notes", Icons.notes,
-              currentPage == DrawerSections.notes ? true : false),
+          menuItem(1, "Profile", Icons.supervised_user_circle_sharp,
+              currentPage == DrawerSections.profil ? true : false),
+          menuItem(2, "Abonnements", Icons.subscript_outlined,
+              currentPage == DrawerSections.abonnement ? true : false),
+          menuItem(3, "Helps", Icons.help_sharp,
+              currentPage == DrawerSections.helps ? true : false),
           Divider(),
-          menuItem(4, "Settings", Icons.settings_outlined,
-              currentPage == DrawerSections.settings ? true : false),
+          menuItem(4, "Paramètres", Icons.settings_outlined,
+              currentPage == DrawerSections.parametres ? true : false),
           menuItem(5, "Notifications", Icons.notifications_outlined,
               currentPage == DrawerSections.notifications ? true : false),
           Divider(),
-          menuItem(6, "Privacy policy", Icons.privacy_tip_outlined,
+          menuItem(6, "Termes et confidentialités", Icons.privacy_tip_outlined,
               currentPage == DrawerSections.privacy_policy ? true : false),
-          menuItem(7, "Send feedback", Icons.feedback_outlined,
-              currentPage == DrawerSections.send_feedback ? true : false),
         ],
       ),
     );
@@ -355,19 +350,17 @@ class _HomeMedicalState extends State<HomeMedical> {
           Navigator.pop(context);
           setState(() {
             if (id == 1) {
-              currentPage = DrawerSections.dashboard;
+              currentPage = DrawerSections.profil;
             } else if (id == 2) {
-              currentPage = DrawerSections.contacts;
+              currentPage = DrawerSections.abonnement;
             } else if (id == 3) {
-              currentPage = DrawerSections.notes;
+              currentPage = DrawerSections.helps;
             } else if (id == 4) {
-              currentPage = DrawerSections.settings;
+              currentPage = DrawerSections.parametres;
             } else if (id == 5) {
               currentPage = DrawerSections.notifications;
             } else if (id == 6) {
               currentPage = DrawerSections.privacy_policy;
-            } else if (id == 7) {
-              currentPage = DrawerSections.send_feedback;
             }
           });
         },
@@ -401,11 +394,10 @@ class _HomeMedicalState extends State<HomeMedical> {
 }
 
 enum DrawerSections {
-  dashboard,
-  contacts,
-  notes,
-  settings,
+  profil,
+  abonnement,
+  helps,
+  parametres,
   notifications,
   privacy_policy,
-  send_feedback,
 }

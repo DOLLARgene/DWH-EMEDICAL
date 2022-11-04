@@ -10,7 +10,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("Settings Page"),
+        child: Text("Parametres Page"),
       ),
     );
   }
