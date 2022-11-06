@@ -65,10 +65,15 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+        body: Container(
+          color: Colors.blue,
+          alignment: Alignment.center,
+          child: Icon(
+            Icons.health_and_safety_outlined,
+            color: Colors.black,
+            size: 150,
+          ),
+          /*children: const [
               Center(
                 child: Text(
                   "E-medical",
@@ -82,8 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
               /*Image(
                 image: AssetImage("assets/imgs/img1.png"),
               ),*/
-            ],
-          ),
+            ],*/
         ),
       ),
     );

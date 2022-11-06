@@ -29,7 +29,7 @@ class _HomeMedicalState extends State<HomeMedical> {
   Widget build(BuildContext context) {
     var container;
     if (currentPage == DrawerSections.profil) {
-      container = DashboardPage();
+      container = PrifilPage();
     } else if (currentPage == DrawerSections.abonnement) {
       container = ContactsPage();
     } else if (currentPage == DrawerSections.helps) {
