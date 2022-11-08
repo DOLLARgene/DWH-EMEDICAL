@@ -7,6 +7,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 import "package:emedical/menu/privacy_policy.dart";
 import 'package:emedical/menu/parametres.dart';
+import 'package:emedical/views/accueil.dart';
 import 'package:emedical/menu/abonnement.dart';
 import 'package:emedical/menu/profil.dart';
 import 'package:emedical/views/my_drawer_header.dart';
@@ -31,7 +32,7 @@ class _HomeMedicalState extends State<HomeMedical> {
     if (currentPage == DrawerSections.profil) {
       container = PrifilPage();
     } else if (currentPage == DrawerSections.abonnement) {
-      container = ContactsPage();
+      container = AccueilPage();
     } else if (currentPage == DrawerSections.helps) {
       container = HelpPage();
     } else if (currentPage == DrawerSections.parametres) {

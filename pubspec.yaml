@@ -41,6 +41,11 @@ dependencies:
   sms_autofill: ^2.2.0
   flutter_launcher_icons: ^0.10.0
   google_maps_flutter: ^2.2.1
+  geolocator: ^9.0.2
+  flutter_polyline_points: ^1.0.0
+  flutter_credit_card: ^3.0.4
+  
+
   
 
 dev_dependencies:

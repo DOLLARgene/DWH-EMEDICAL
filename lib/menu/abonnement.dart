@@ -5,107 +5,67 @@ import 'package:emedical/views/home_medical.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-class ContactsPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-        child: Container(
-      child: Services(),
-    )
-        // child: Text("Contacts Page"),
+class Abonnement extends StatefulWidget {
+  const Abonnement({super.key});
 
-        );
+  @override
+  State<Abonnement> createState() => _AbonnementState();
+}
+
+class _AbonnementState extends State<Abonnement> {
+  onItemPress(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        //payer avec une nouvelle carte
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/existing_cards');
+        break;
+      default:
+    }
   }
 
-  Widget Services() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Gap(20),
-            CarouselSlider(
-              options: CarouselOptions(
-                height: 250.0,
-                autoPlay: true,
-              ),
-              items: contentSlidersItems.map((slider) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Stack(
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                slider.urlImage,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 20,
-                          bottom: 10,
-                          child: Text(
-                            slider.textContent,
-                            style: const TextStyle(
-                              fontFamily: montserratFamily,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-            Gap(20),
-            GridView.builder(
-              shrinkWrap: true,
-              itemCount: gridCardItem.length,
-              primary: false,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0,
-              ),
-              itemBuilder: (context, index) => Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
+  @override
+  Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Choisir une carte existant"),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20.0),
+        child: ListView.separated(
+            itemBuilder: (context, index) {
+              Icon icon;
+              Text text;
+              switch (index) {
+                case 0:
+                  icon = Icon(
+                    Icons.add_circle,
+                    color: Colors.blue,
+                  );
+                  text = Text("Payer via une nouvelle carte");
+                  break;
+                case 1:
+                  icon = Icon(
+                    Icons.credit_card,
+                    color: Colors.blue,
+                  );
+                  text = Text("Payer via une carte existante");
+                  break;
+              }
+              return InkWell(
+                onTap: () {
+                  onItemPress(context, index);
+                },
+                child: ListTile(
+                  title: text,
+                  leading: icon,
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 130,
-                      child: SvgPicture.asset(
-                        gridCardItem[index].urlImage,
-                      ),
-                    ),
-                    Text(
-                      gridCardItem[index].textContent,
-                      style: TextStyle(
-                        fontFamily: montserratFamily,
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Gap(20.0),
-          ],
-        ),
+              );
+            },
+            separatorBuilder: (context, index) => Divider(color: Colors.blue),
+            itemCount: 2),
       ),
     );
   }

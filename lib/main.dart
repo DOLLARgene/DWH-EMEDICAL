@@ -73,21 +73,6 @@ class _SplashScreenState extends State<SplashScreen> {
             color: Colors.black,
             size: 150,
           ),
-          /*children: const [
-              Center(
-                child: Text(
-                  "E-medical",
-                  style: TextStyle(
-                    fontFamily: montserratFamily,
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-              /*Image(
-                image: AssetImage("assets/imgs/img1.png"),
-              ),*/
-            ],*/
         ),
       ),
     );
