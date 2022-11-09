@@ -1,5 +1,10 @@
+import 'package:emedical/Diagnostic/consultation.dart';
 import 'package:emedical/models/Deasise_cathegory.dart';
+import 'package:emedical/models/item_suscribe.dart';
 import 'package:emedical/models/slider_item.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const montserratFamily = "Montserrat";
 
@@ -13,26 +18,45 @@ const diagnostic2 = "assets/imgs/phonendoscope.svg";
 const resultat = "assets/imgs/deliveryLocation.svg";
 List<SliderItem> contentSlidersItems = [
   SliderItem(
-      urlImage: imgSlider1,
-      textContent:
-          'Obtenez un diagnostic primale sur votre état de santé afin d etre redirigé vers une clinique adequate'),
+    urlImage: imgSlider1,
+    textContent:
+        'Obtenez un diagnostic primale sur votre état de santé afin d etre redirigé vers une clinique adequate',
+    path: "",
+  ),
   SliderItem(
-      urlImage: imgSlider2,
-      textContent:
-          'Faites vous livrer depuis chez vous vos médicaments sans avoir a vous deplacer vers une pharmacie'),
+    urlImage: imgSlider2,
+    textContent:
+        'Faites vous livrer depuis chez vous vos médicaments sans avoir a vous deplacer vers une pharmacie',
+    path: "",
+  ),
   SliderItem(
-      urlImage: imgSlider3,
-      textContent:
-          'Obtenez les resultat de vos analyse medical depuis chez vous'),
+    urlImage: imgSlider3,
+    textContent: 'Obtenez les resultat de vos analyse medical depuis chez vous',
+    path: "",
+  ),
+];
+List<ItemSuscribe> contentSucribe = [
+  ItemSuscribe(content: "Choisir une carte existant", icon: Icons.add_circle),
+  ItemSuscribe(
+      content: "CPayer via une carte existante", icon: Icons.credit_card),
 ];
 
 List<SliderItem> gridCardItem = [
   SliderItem(
     urlImage: diagnostic2,
     textContent: "Pre diagnostic",
+    path: Consultation.routeName,
   ),
-  SliderItem(urlImage: deliveryIll, textContent: "Livraison"),
-  SliderItem(urlImage: resultat, textContent: "Résultats"),
+  SliderItem(
+    urlImage: deliveryIll,
+    textContent: "Livraison",
+    path: "",
+  ),
+  SliderItem(
+    urlImage: resultat,
+    textContent: "Résultats",
+    path: "",
+  ),
 ];
 
 List<Desease> listMaladie = [
@@ -56,7 +80,7 @@ List<Desease> listMaladie = [
     "coubatures",
     "diarhée"
   ]),
-  Desease(desease: "Cancer", id: 1, deseaseSymptom: [
+  Desease(desease: "Cancer", id: 3, deseaseSymptom: [
     "perte de poids inexpliquée",
     "fatigue",
     "Sueurs noctune",

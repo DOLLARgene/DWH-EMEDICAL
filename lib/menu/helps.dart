@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HelpPage extends StatefulWidget {
+  static String routeName = "/helps";
   @override
   _HelpPageState createState() => _HelpPageState();
 }

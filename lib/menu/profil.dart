@@ -1,18 +1,19 @@
 import 'package:emedical/components/custom_button.dart';
 import 'package:flutter/material.dart';
 
-class PrifilPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Profil  page",
-      home: EditProfilPage(),
-    );
-  }
-}
+// class PrifilPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: "Profil  page",
+//       home: EditProfilPage(),
+//     );
+//   }
+// }
 
 class EditProfilPage extends StatefulWidget {
+  static String routeName = "/profil";
   const EditProfilPage({super.key});
 
   @override

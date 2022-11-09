@@ -2,6 +2,7 @@ import 'package:emedical/menu/abonnement.dart';
 import 'package:flutter/material.dart';
 
 class ExistingCard extends StatefulWidget {
+  static String routeName = "/existing_cards";
   const ExistingCard({super.key});
 
   @override

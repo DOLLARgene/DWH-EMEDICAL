@@ -1,5 +1,13 @@
 //import 'package:emedical/models/menu.dart';
+import 'package:emedical/Diagnostic/consultation.dart';
 import 'package:emedical/auth/new_password.dart';
+import 'package:emedical/menu/abonnement.dart';
+import 'package:emedical/menu/existing_cards.dart';
+import 'package:emedical/menu/helps.dart';
+import 'package:emedical/menu/notifications.dart';
+import 'package:emedical/menu/parametres.dart';
+import 'package:emedical/menu/privacy_policy.dart';
+import 'package:emedical/menu/profil.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:emedical/auth/enter_code.dart';
 import 'package:emedical/auth/set_password_sms.dart';
@@ -39,6 +47,15 @@ class MyApp extends StatelessWidget {
         SetPasswordSms.routeName: (_) => const SetPasswordSms(),
         EnterCode.routeName: (_) => const EnterCode(),
         NewPassword.routeName: (_) => const NewPassword(),
+        Consultation.routeName: (_) => const Consultation(),
+        EditProfilPage.routeName: (_) => const EditProfilPage(),
+        SettingsPage.routeName: (_) => SettingsPage(),
+        NotificationsPage.routeName: (_) => NotificationsPage(),
+        PrivacyPolicyPage.routeName: (_) => PrivacyPolicyPage(),
+        HelpPage.routeName: (_) => HelpPage(),
+        ExistingCard.routeName: (_) => ExistingCard(),
+        Abonnement.routeName: (_) => Abonnement(),
+    
       },
       debugShowCheckedModeBanner: false,
     );

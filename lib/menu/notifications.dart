@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatefulWidget {
+  static String routeName = "/notifications";
   @override
   _NotificationsPageState createState() => _NotificationsPageState();
 }

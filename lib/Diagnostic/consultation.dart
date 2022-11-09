@@ -1,9 +1,11 @@
 import 'package:emedical/components/click_on_symptome.dart';
+import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/helpers/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Consultation extends StatefulWidget {
+  static String routeName = '/consultation';
   const Consultation({super.key});
 
   @override
@@ -12,6 +14,10 @@ class Consultation extends StatefulWidget {
 
 class _ConsultationState extends State<Consultation> {
   List<String> allSymptom = [];
+
+  List<String> paludisme = [];
+  List<String> covid = [];
+  List<String> cancer = [];
 
   @override
   void initState() {
@@ -40,27 +46,68 @@ class _ConsultationState extends State<Consultation> {
         actions: [],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Text("Selectionnez les symptome que vous ressentez"),
-            SizedBox(
-              height: 20.0,
-            ),
-            GridView.builder(
-              itemCount: allSymptom.length,
-              shrinkWrap: true,
-              primary: false,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20.0,
               ),
-              itemBuilder: (context, index) => ClickOnSymptome(
-                content: allSymptom[index],
+              Text(
+                "Selectionnez les symptome que vous ressentez",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25.0,
+                    fontFamily: montserratFamily,
+                    fontWeight: FontWeight.w800),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 20.0,
+              ),
+              Column(
+                children: List.generate(
+                    allSymptom.length,
+                    (index) => ClickOnSymptome(
+                          content: allSymptom[index],
+                          getValue: (isActive) {
+                            print("hello");
+                            print(isActive);
+                            if (isActive == true) {
+                              listMaladie.forEach((e) {
+                                print(e.desease.contains(allSymptom[index]));
+                                print(allSymptom[index]);
+                                print(e.desease.contains(allSymptom[index]));
+                                if (e.desease.contains(allSymptom[index]) &&
+                                    e.id == 1) {
+                                  paludisme.add(allSymptom[index]);
+                                }
+                                if (e.desease.contains(allSymptom[index]) &&
+                                    e.id == 2) {
+                                  covid.add(allSymptom[index]);
+                                }
+                                if (e.desease.contains(allSymptom[index]) &&
+                                    e.id == 3) {
+                                  cancer.add(allSymptom[index]);
+                                }
+                                //print(allSymptom);
+                              });
+
+                              setState(() {
+                                print(paludisme);
+                                print(covid);
+                                print(cancer);
+                              });
+                            }
+                          },
+                        )),
+              ),
+              CustomButton(
+                buttonContent: "valider",
+                action: () {},
+                style: ButtonStyle(),
+              )
+            ],
+          ),
         ),
       ),
     );

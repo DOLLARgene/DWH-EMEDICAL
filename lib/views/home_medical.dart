@@ -1,3 +1,4 @@
+import 'package:emedical/Diagnostic/consultation.dart';
 import 'package:emedical/helpers/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -30,7 +31,7 @@ class _HomeMedicalState extends State<HomeMedical> {
   Widget build(BuildContext context) {
     var container;
     if (currentPage == DrawerSections.profil) {
-      container = PrifilPage();
+      container = EditProfilPage();
     } else if (currentPage == DrawerSections.abonnement) {
       container = AccueilPage();
     } else if (currentPage == DrawerSections.helps) {
@@ -153,30 +154,35 @@ class _HomeMedicalState extends State<HomeMedical> {
                     crossAxisSpacing: 4.0,
                     mainAxisSpacing: 4.0,
                   ),
-                  itemBuilder: (context, index) => Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 130,
-                          child: SvgPicture.asset(
-                            gridCardItem[index].urlImage,
+                  itemBuilder: (context, index) => GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(gridCardItem[index].path);
+                    },
+                    child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 130,
+                            child: SvgPicture.asset(
+                              gridCardItem[index].urlImage,
+                            ),
                           ),
-                        ),
-                        Text(
-                          gridCardItem[index].textContent,
-                          style: TextStyle(
-                            fontFamily: montserratFamily,
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.grey,
+                          Text(
+                            gridCardItem[index].textContent,
+                            style: TextStyle(
+                              fontFamily: montserratFamily,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -323,20 +329,52 @@ class _HomeMedicalState extends State<HomeMedical> {
       child: Column(
         // shows the list of menu drawer
         children: [
-          menuItem(1, "Profile", Icons.supervised_user_circle_sharp,
-              currentPage == DrawerSections.profil ? true : false),
-          menuItem(2, "Abonnements", Icons.subscript_outlined,
-              currentPage == DrawerSections.abonnement ? true : false),
-          menuItem(3, "Helps", Icons.help_sharp,
-              currentPage == DrawerSections.helps ? true : false),
+          MenuItemCompenent(
+            id: 1,
+            title: "Profile",
+            icon: Icons.supervised_user_circle_sharp,
+            selected: currentPage == DrawerSections.profil ? true : false,
+            path: "/profil",
+          ),
+          MenuItemCompenent(
+            id: 2,
+            title: "Abonnements",
+            icon: Icons.subscript_outlined,
+            selected: currentPage == DrawerSections.abonnement ? true : false,
+            path: "/abonnement",
+          ),
+          MenuItemCompenent(
+            id: 3,
+            title: "Helps",
+            icon: Icons.help_sharp,
+            selected: currentPage == DrawerSections.helps ? true : false,
+            path: "/helps",
+          ),
           Divider(),
-          menuItem(4, "Paramètres", Icons.settings_outlined,
-              currentPage == DrawerSections.parametres ? true : false),
-          menuItem(5, "Notifications", Icons.notifications_outlined,
-              currentPage == DrawerSections.notifications ? true : false),
+          MenuItemCompenent(
+            id: 4,
+            title: "Paramètres",
+            icon: Icons.settings_outlined,
+            selected: currentPage == DrawerSections.parametres ? true : false,
+            path: "/parametres",
+          ),
+          MenuItemCompenent(
+            id: 5,
+            title: "Notifications",
+            icon: Icons.notifications_outlined,
+            selected:
+                currentPage == DrawerSections.notifications ? true : false,
+            path: "/notifications",
+          ),
           Divider(),
-          menuItem(6, "Termes et confidentialités", Icons.privacy_tip_outlined,
-              currentPage == DrawerSections.privacy_policy ? true : false),
+          MenuItemCompenent(
+            id: 6,
+            title: "Termes et confidentialités",
+            icon: Icons.privacy_tip_outlined,
+            selected:
+                currentPage == DrawerSections.privacy_policy ? true : false,
+            path: "/privacy_policy",
+          ),
         ],
       ),
     );
@@ -387,6 +425,54 @@ class _HomeMedicalState extends State<HomeMedical> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class MenuItemCompenent extends StatelessWidget {
+  final int id;
+  final String title;
+  final IconData icon;
+  final bool selected;
+  final String path;
+  const MenuItemCompenent(
+      {super.key,
+      required this.id,
+      required this.title,
+      required this.icon,
+      required this.selected,
+      required this.path});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(15.0),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).pushNamed(path);
+        },
+        child: Row(
+          children: [
+            Expanded(
+              child: Icon(
+                icon,
+                size: 20,
+                color: Colors.black,
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Text(
+                title,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

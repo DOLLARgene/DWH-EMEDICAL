@@ -5,7 +5,9 @@ import 'package:emedical/models/Deasise_cathegory.dart';
 
 class ClickOnSymptome extends StatefulWidget {
   final String content;
-  const ClickOnSymptome({super.key, required this.content});
+  final Function(bool isACtive) getValue;
+  const ClickOnSymptome(
+      {super.key, required this.content, required this.getValue});
 
   @override
   State<ClickOnSymptome> createState() => _ClickOnSymptomeState();
@@ -23,12 +25,12 @@ class _ClickOnSymptomeState extends State<ClickOnSymptome> {
             onChanged: (value) {
               setState(() {
                 isActive = value!;
+                widget.getValue(isActive);
               });
             }),
         Text(widget.content),
         //Symptom();
       ],
-    
     );
   }
 }
