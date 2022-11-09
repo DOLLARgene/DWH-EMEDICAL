@@ -1,3 +1,4 @@
+import 'package:emedical/models/Deasise_cathegory.dart';
 import 'package:emedical/models/slider_item.dart';
 
 const montserratFamily = "Montserrat";
@@ -32,4 +33,40 @@ List<SliderItem> gridCardItem = [
   ),
   SliderItem(urlImage: deliveryIll, textContent: "Livraison"),
   SliderItem(urlImage: resultat, textContent: "Résultats"),
+];
+
+List<Desease> listMaladie = [
+  Desease(desease: "Paludisme", id: 1, deseaseSymptom: [
+    "Cephalées",
+    "fièvre",
+    "frissons",
+    "vomissement",
+    "douleurs musculaire"
+  ]),
+  Desease(desease: "Covid 19", id: 2, deseaseSymptom: [
+    "toux",
+    "fatigue",
+    "yeux rouge et irrités"
+        "fièvre",
+    "perte de l'odorat",
+    "maux de gorge",
+    "douleurs musculaire",
+    "essoufflement",
+    "douleur au niveau de la fatigue",
+    "coubatures",
+    "diarhée"
+  ]),
+  Desease(desease: "Cancer", id: 1, deseaseSymptom: [
+    "perte de poids inexpliquée",
+    "fatigue",
+    "Sueurs noctune",
+    "vomissement",
+    "perte d'appetit",
+    "douleur nouvelle prolongé",
+    "nausée",
+    "vomissement",
+    "Sang dans l'urine",
+    "Sang dans le selle",
+    "ganglion lymphatique"
+  ]),
 ];

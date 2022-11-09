@@ -95,7 +95,7 @@ class _HomeMedicalState extends State<HomeMedical> {
           automaticallyImplyLeading: false,
           backgroundColor: Colors.white,*/
         ),
-        /*body: Padding(
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: SingleChildScrollView(
             child: Column(
@@ -184,8 +184,7 @@ class _HomeMedicalState extends State<HomeMedical> {
               ],
             ),
           ),
-        ),*/
-        body: container,
+        ),
         drawer: Drawer(
           child: SingleChildScrollView(
             child: Container(
