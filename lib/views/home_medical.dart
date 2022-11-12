@@ -38,9 +38,10 @@ class _HomeMedicalState extends State<HomeMedical> {
       container = HelpPage();
     } else if (currentPage == DrawerSections.parametres) {
       container = SettingsPage();
-    } else if (currentPage == DrawerSections.notifications) {
+    } /* else if (currentPage == DrawerSections.notifications) {
       container = NotificationsPage();
-    } else if (currentPage == DrawerSections.privacy_policy) {
+    } */
+    else if (currentPage == DrawerSections.privacy_policy) {
       container = PrivacyPolicyPage();
     }
     return SafeArea(
@@ -358,14 +359,14 @@ class _HomeMedicalState extends State<HomeMedical> {
             selected: currentPage == DrawerSections.parametres ? true : false,
             path: "/parametres",
           ),
-          MenuItemCompenent(
+          /* MenuItemCompenent(
             id: 5,
             title: "Notifications",
             icon: Icons.notifications_outlined,
             selected:
                 currentPage == DrawerSections.notifications ? true : false,
             path: "/notifications",
-          ),
+          ),*/
           Divider(),
           MenuItemCompenent(
             id: 6,
@@ -395,9 +396,10 @@ class _HomeMedicalState extends State<HomeMedical> {
               currentPage = DrawerSections.helps;
             } else if (id == 4) {
               currentPage = DrawerSections.parametres;
-            } else if (id == 5) {
+            } /* else if (id == 5) {
               currentPage = DrawerSections.notifications;
-            } else if (id == 6) {
+            }*/
+            else if (id == 6) {
               currentPage = DrawerSections.privacy_policy;
             }
           });

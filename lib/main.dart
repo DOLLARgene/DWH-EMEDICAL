@@ -1,5 +1,7 @@
 //import 'package:emedical/models/menu.dart';
+import 'package:emedical/Diagnostic/hypothese.dart';
 import 'package:emedical/Diagnostic/consultation.dart';
+import 'package:emedical/Livraison/livraison.dart';
 import 'package:emedical/auth/new_password.dart';
 import 'package:emedical/menu/abonnement.dart';
 import 'package:emedical/menu/existing_cards.dart';
@@ -55,7 +57,8 @@ class MyApp extends StatelessWidget {
         HelpPage.routeName: (_) => HelpPage(),
         ExistingCard.routeName: (_) => ExistingCard(),
         Abonnement.routeName: (_) => Abonnement(),
-    
+        Hypothese.routeName: (_) => Hypothese(),
+        Livraison.routeName: (_) => Livraison(),
       },
       debugShowCheckedModeBanner: false,
     );
@@ -73,7 +76,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushNamed(Login.routeName);
     });
   }

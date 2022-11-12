@@ -1,6 +1,7 @@
 import 'package:emedical/components/click_on_symptome.dart';
 import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/helpers/constant.dart';
+import 'package:emedical/Diagnostic/hypothese.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -51,10 +52,10 @@ class _ConsultationState extends State<Consultation> {
           child: Column(
             children: [
               SizedBox(
-                height: 20.0,
+                height: 18.0,
               ),
               Text(
-                "Selectionnez les symptome que vous ressentez",
+                "Selectionnez les symptomes que vous ressentez",
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 25.0,
@@ -62,48 +63,51 @@ class _ConsultationState extends State<Consultation> {
                     fontWeight: FontWeight.w800),
               ),
               SizedBox(
-                height: 20.0,
+                height: 18.0,
               ),
               Column(
                 children: List.generate(
-                    allSymptom.length,
-                    (index) => ClickOnSymptome(
-                          content: allSymptom[index],
-                          getValue: (isActive) {
-                            print("hello");
-                            print(isActive);
-                            if (isActive == true) {
-                              listMaladie.forEach((e) {
-                                print(e.desease.contains(allSymptom[index]));
-                                print(allSymptom[index]);
-                                print(e.desease.contains(allSymptom[index]));
-                                if (e.desease.contains(allSymptom[index]) &&
-                                    e.id == 1) {
-                                  paludisme.add(allSymptom[index]);
-                                }
-                                if (e.desease.contains(allSymptom[index]) &&
-                                    e.id == 2) {
-                                  covid.add(allSymptom[index]);
-                                }
-                                if (e.desease.contains(allSymptom[index]) &&
-                                    e.id == 3) {
-                                  cancer.add(allSymptom[index]);
-                                }
-                                //print(allSymptom);
-                              });
+                  allSymptom.length,
+                  (index) => ClickOnSymptome(
+                    content: allSymptom[index],
+                    getValue: (isActive) {
+                      print("hello");
+                      print(isActive);
+                      if (isActive == true) {
+                        listMaladie.forEach((e) {
+                          print(e.desease.contains(allSymptom[index]));
+                          print(allSymptom[index]);
+                          print(e.desease.contains(allSymptom[index]));
+                          if (e.desease.contains(allSymptom[index]) &&
+                              e.id == 1) {
+                            paludisme.add(allSymptom[index]);
+                          }
+                          if (e.desease.contains(allSymptom[index]) &&
+                              e.id == 2) {
+                            covid.add(allSymptom[index]);
+                          }
+                          if (e.desease.contains(allSymptom[index]) &&
+                              e.id == 3) {
+                            cancer.add(allSymptom[index]);
+                          }
+                          //print(allSymptom);
+                        });
 
-                              setState(() {
-                                print(paludisme);
-                                print(covid);
-                                print(cancer);
-                              });
-                            }
-                          },
-                        )),
+                        setState(() {
+                          print(paludisme);
+                          print(covid);
+                          print(cancer);
+                        });
+                      }
+                    },
+                  ),
+                ),
               ),
               CustomButton(
                 buttonContent: "valider",
-                action: () {},
+                action: () {
+                  Navigator.of(context).pushNamed(Hypothese.routeName);
+                },
                 style: ButtonStyle(),
               )
             ],
