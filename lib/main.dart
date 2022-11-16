@@ -1,6 +1,7 @@
 //import 'package:emedical/models/menu.dart';
 import 'package:emedical/Diagnostic/hypothese.dart';
 import 'package:emedical/Diagnostic/consultation.dart';
+import 'package:emedical/Livraison/evolution_commande.dart';
 import 'package:emedical/Livraison/livraison.dart';
 import 'package:emedical/auth/new_password.dart';
 import 'package:emedical/menu/abonnement.dart';
@@ -59,6 +60,7 @@ class MyApp extends StatelessWidget {
         Abonnement.routeName: (_) => Abonnement(),
         Hypothese.routeName: (_) => Hypothese(),
         Livraison.routeName: (_) => Livraison(),
+       // EvolutionCommande.routeName: (_) => EvolutionCommande(),
       },
       debugShowCheckedModeBanner: false,
     );

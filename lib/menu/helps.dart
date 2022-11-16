@@ -11,7 +11,7 @@ class _HelpPageState extends State<HelpPage> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("Page d'aide"),
+        child: Text("En quoi pourrions-nous vous aidez?"),
       ),
     );
   }

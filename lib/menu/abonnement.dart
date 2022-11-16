@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+//import 'package:emedical/Livraison/evolution_commande.dart';
+import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/helpers/constant.dart';
 import 'package:emedical/models/item_suscribe.dart';
 import 'package:flutter/material.dart';
@@ -32,24 +34,39 @@ class _AbonnementState extends State<Abonnement> {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: Text("Abonnement"),
       ),
       body: Container(
         padding: EdgeInsets.all(20.0),
-        child: ListView.separated(
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  onItemPress(context, index);
+        child: Column(
+          children: [
+            ListView.separated(
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      onItemPress(context, index);
+                    },
+                    child: ListTile(
+                      title: Text(contentSucribe[index].content),
+                      leading: Icon(contentSucribe[index].icon),
+                    ),
+                  );
                 },
-                child: ListTile(
-                  title: Text(contentSucribe[index].content),
-                  leading: Icon(contentSucribe[index].icon),
-                ),
-              );
-            },
-            separatorBuilder: (context, index) => Divider(color: Colors.blue),
-            itemCount: 2),
+                separatorBuilder: (context, index) =>
+                    Divider(color: Colors.blue),
+                itemCount: 2),
+            SizedBox(
+              height: 80.0,
+            ),
+            CustomButton(
+              buttonContent: "Veillez suivre l'evolution de votre commande",
+              action: () {
+                //Navigator.of(context).pushNamed(EvolutionCommande.routeName);
+              },
+              style: ButtonStyle(),
+            ),
+          ],
+        ),
       ),
     );
   }

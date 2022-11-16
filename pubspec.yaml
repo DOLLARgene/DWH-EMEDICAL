@@ -45,6 +45,8 @@ dependencies:
   flutter_polyline_points: ^1.0.0
   flutter_credit_card: ^3.0.4
   path_provider: ^2.0.11
+  image_picker: ^0.8.6
+  location: ^4.4.0
   
 
   

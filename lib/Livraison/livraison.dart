@@ -1,5 +1,5 @@
-import 'dart:html';
-
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:emedical/components/click_on_symptome.dart';
 import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/helpers/constant.dart';
@@ -19,6 +19,19 @@ class Livraison extends StatefulWidget {
 }
 
 class _LivraisonState extends State<Livraison> {
+  XFile? image;
+
+  final ImagePicker picker = ImagePicker();
+
+  //we can upload image from camera or from gallery based on parameter
+  Future getImage(ImageSource media) async {
+    var img = await picker.pickImage(source: media);
+
+    setState(() {
+      image = img;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +52,7 @@ class _LivraisonState extends State<Livraison> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:
-              const EdgeInsets.symmetric(vertical: 250.0, horizontal: 100.0),
+          padding: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -49,15 +61,12 @@ class _LivraisonState extends State<Livraison> {
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: montserratFamily,
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w900,
+                  fontSize: 20.0,
+                  //fontWeight: FontWeight.w900,
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
-                height: 30.0,
-              ),
-              TextButton(
+              /*TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: Color.fromARGB(0, 68, 143, 241),
                   shape: RoundedRectangleBorder(
@@ -68,16 +77,61 @@ class _LivraisonState extends State<Livraison> {
                   Navigator.of(context).pushNamed(Abonnement.routeName);
                 },
                 child: Text(
-                  "oui je veux bien",
+                  "oui, je veux bien",
                   style: TextStyle(
                     color: Colors.blueAccent,
                     fontSize: 25.0,
                     fontFamily: montserratFamily,
                   ),
                 ),
+              ),*/
+              SizedBox(
+                height: 70.0,
+              ),
+              Text(
+                "Si vous tenez à vous fair livrez vos produit pharmaceutique,alors veullez uploader le fichier  scanner de votre ordornanace",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: montserratFamily,
+                  fontSize: 20.0,
+                  //fontWeight: FontWeight.w900,
+                ),
+                textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: 35.0,
+                height: 50.0,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  myAlert();
+                },
+                child: Text('Upload Photo'),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              //if image not null show the image
+              //if image null show text
+              image != null
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.file(
+                          //to show image, you type like this.
+                          File(image!.path),
+                          fit: BoxFit.cover,
+                          width: MediaQuery.of(context).size.width,
+                          height: 300,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      "No Image",
+                      style: TextStyle(fontSize: 20),
+                    ),
+              SizedBox(
+                height: 60.0,
               ),
               TextButton(
                 style: TextButton.styleFrom(
@@ -98,116 +152,174 @@ class _LivraisonState extends State<Livraison> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 90.0,
+              ),
               CustomButton(
                 buttonContent: "valider",
                 action: () {
                   Navigator.of(context).pushNamed(Abonnement.routeName);
                 },
                 style: ButtonStyle(),
-              )
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
+  void myAlert() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            title: Text('Please choose media to select'),
+            content: Container(
+              height: MediaQuery.of(context).size.height / 6,
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    //if user click this button, user can upload image from gallery
+                    onPressed: () {
+                      Navigator.pop(context);
+                      getImage(ImageSource.gallery);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.image),
+                        Text('From Gallery'),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    //if user click this button. user can upload image from camera
+                    onPressed: () {
+                      Navigator.pop(context);
+                      getImage(ImageSource.camera);
+                    },
+                    child: Row(
+                      children: [
+                        Icon(Icons.camera),
+                        Text('From Camera'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
 }
-
-
-// import 'dart:async';
-// import 'dart:io';
-// import 'package:path_provider/path_provider.dart';
-
-/*void main() {
-  runApp(
-    MaterialApp(
-      title: 'Reading and Writing Files',
-      home: FlutterDemo(storage: CounterStorage()),
-    ),
-  );
-}*/
-
-// class Livraison {
-//   static String routeName = "/livraison";
-//   Future<String> get _localPath async {
-//     final directory = await getApplicationDocumentsDirectory();
-
-//     return directory.path;
-//   }
-
-//   Future<File> get _localFile async {
-//     final path = await _localPath;
-//     return File('$path/counter.txt');
-//   }
-
-//   Future<int> readCounter() async {
-//     try {
-//       final file = await _localFile;
-
-//       // Read the file
-//       final contents = await file.readAsString();
-
-//       return int.parse(contents);
-//     } catch (e) {
-//       // If encountering an error, return 0
-//       return 0;
-//     }
-//   }
-
-//   Future<File> writeCounter(int counter) async {
-//     final file = await _localFile;
-
-//     // Write the file
-//     return file.writeAsString('$counter');
-//   }
+// class Home extends StatefulWidget {
+//   @override
+//   _HomeState createState() => _HomeState();
 // }
 
-// class FlutterDemo extends StatefulWidget {
-//   const FlutterDemo({super.key, required this.storage});
+// class _HomeState extends State<Home> {
+//   XFile? image;
 
-//   final Livraison storage;
+//   final ImagePicker picker = ImagePicker();
 
-//   @override
-//   State<FlutterDemo> createState() => _FlutterDemoState();
-// }
+//   //we can upload image from camera or from gallery based on parameter
+//   Future getImage(ImageSource media) async {
+//     var img = await picker.pickImage(source: media);
 
-// class _FlutterDemoState extends State<FlutterDemo> {
-//   int _counter = 0;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     widget.storage.readCounter().then((value) {
-//       setState(() {
-//         _counter = value;
-//       });
-//     });
-//   }
-
-//   Future<File> _incrementCounter() {
 //     setState(() {
-//       _counter++;
+//       image = img;
 //     });
+//   }
 
-//     // Write the variable as a string to the file.
-//     return widget.storage.writeCounter(_counter);
+//   //show popup dialog
+//   void myAlert() {
+//     showDialog(
+//         context: context,
+//         builder: (BuildContext context) {
+//           return AlertDialog(
+//             shape:
+//                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+//             title: Text('Please choose media to select'),
+//             content: Container(
+//               height: MediaQuery.of(context).size.height / 6,
+//               child: Column(
+//                 children: [
+//                   ElevatedButton(
+//                     //if user click this button, user can upload image from gallery
+//                     onPressed: () {
+//                       Navigator.pop(context);
+//                       getImage(ImageSource.gallery);
+//                     },
+//                     child: Row(
+//                       children: [
+//                         Icon(Icons.image),
+//                         Text('From Gallery'),
+//                       ],
+//                     ),
+//                   ),
+//                   ElevatedButton(
+//                     //if user click this button. user can upload image from camera
+//                     onPressed: () {
+//                       Navigator.pop(context);
+//                       getImage(ImageSource.camera);
+//                     },
+//                     child: Row(
+//                       children: [
+//                         Icon(Icons.camera),
+//                         Text('From Camera'),
+//                       ],
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           );
+//         });
 //   }
 
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       appBar: AppBar(
-//         title: const Text('Reading and Writing Files'),
+//         title: Text('Upload Image'),
 //       ),
 //       body: Center(
-//         child: Text(
-//           'Button tapped $_counter time${_counter == 1 ? '' : 's'}.',
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             ElevatedButton(
+//               onPressed: () {
+//                 myAlert();
+//               },
+//               child: Text('Upload Photo'),
+//             ),
+//             SizedBox(
+//               height: 10,
+//             ),
+//             //if image not null show the image
+//             //if image null show text
+//             image != null
+//                 ? Padding(
+//                     padding: const EdgeInsets.symmetric(horizontal: 20),
+//                     child: ClipRRect(
+//                       borderRadius: BorderRadius.circular(8),
+//                       child: Image.file(
+//                         //to show image, you type like this.
+//                         File(image!.path),
+//                         fit: BoxFit.cover,
+//                         width: MediaQuery.of(context).size.width,
+//                         height: 300,
+//                       ),
+//                     ),
+//                   )
+//                 : Text(
+//                     "No Image",
+//                     style: TextStyle(fontSize: 20),
+//                   )
+//           ],
 //         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
 //       ),
 //     );
 //   }
