@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextFormField extends StatefulWidget {
+  final TextEditingController? controller;
   final String? htinText;
   final InputType inputType;
   final Widget? prefixIcon;
@@ -14,6 +15,7 @@ class CustomTextFormField extends StatefulWidget {
     this.inputType = InputType.text,
     this.prefixIcon,
     this.inputFormaters,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -26,6 +28,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       obscureText: widget.inputType == InputType.password ? _isHidden : false,
       inputFormatters: widget.inputFormaters,
       decoration: InputDecoration(

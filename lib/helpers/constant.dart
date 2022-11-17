@@ -1,5 +1,6 @@
 import 'package:emedical/Diagnostic/consultation.dart';
 import 'package:emedical/Livraison/livraison.dart';
+import 'package:emedical/Teleconsultation/teleconsultation.dart';
 import 'package:emedical/models/Deasise_cathegory.dart';
 import 'package:emedical/models/item_suscribe.dart';
 import 'package:emedical/models/slider_item.dart';
@@ -48,15 +49,15 @@ List<SliderItem> gridCardItem = [
     textContent: "Pre diagnostic",
     path: Consultation.routeName,
   ),
-  SliderItem(
+  /* SliderItem(
     urlImage: deliveryIll,
     textContent: "Livraison",
     path: Livraison.routeName,
-  ),
+  ),*/
   SliderItem(
     urlImage: resultat,
-    textContent: "Résultats",
-    path: "",
+    textContent: "Téléconsultation",
+    path: Teleconsultation.routeName,
   ),
 ];
 

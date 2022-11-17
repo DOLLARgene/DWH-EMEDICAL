@@ -3,6 +3,8 @@ import 'package:emedical/Diagnostic/hypothese.dart';
 import 'package:emedical/Diagnostic/consultation.dart';
 import 'package:emedical/Livraison/evolution_commande.dart';
 import 'package:emedical/Livraison/livraison.dart';
+import 'package:emedical/Teleconsultation/discussion.dart';
+import 'package:emedical/Teleconsultation/teleconsultation.dart';
 import 'package:emedical/auth/new_password.dart';
 import 'package:emedical/menu/abonnement.dart';
 import 'package:emedical/menu/existing_cards.dart';
@@ -60,7 +62,8 @@ class MyApp extends StatelessWidget {
         Abonnement.routeName: (_) => Abonnement(),
         Hypothese.routeName: (_) => Hypothese(),
         Livraison.routeName: (_) => Livraison(),
-       // EvolutionCommande.routeName: (_) => EvolutionCommande(),
+        Teleconsultation.routeName: (_) => Teleconsultation(),
+        Discussion.routeName: (_) => Discussion(),
       },
       debugShowCheckedModeBanner: false,
     );

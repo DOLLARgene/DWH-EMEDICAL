@@ -4,6 +4,7 @@ import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/components/custom_textformfield.dart';
 import 'package:emedical/helpers/constant.dart';
 import "package:flutter/material.dart";
+import 'package:gap/gap.dart';
 
 import '../views/home_medical.dart';
 
@@ -16,7 +17,7 @@ class Login extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -102,6 +103,7 @@ class Login extends StatelessWidget {
                 },
                 child: Text('Pas de compte? Inscrivez-vous.'),
               ),
+              Gap(20),
             ],
           ),
         ),
