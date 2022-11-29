@@ -34,7 +34,7 @@ class _AbonnementState extends State<Abonnement> {
     ThemeData theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Abonnement"),
+        title: Text("Payement"),
       ),
       body: Container(
         padding: EdgeInsets.all(20.0),
@@ -61,7 +61,7 @@ class _AbonnementState extends State<Abonnement> {
             CustomButton(
               buttonContent: "Veillez suivre l'evolution de votre commande",
               action: () {
-                //Navigator.of(context).pushNamed(EvolutionCommande.routeName);
+                // Navigator.of(context).pushNamed(EvolutionCommande.routeName);
               },
               style: ButtonStyle(),
             ),

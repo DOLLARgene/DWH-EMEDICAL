@@ -13,8 +13,8 @@ const montserratFamily = "Montserrat";
 enum InputType { text, password }
 
 const imgSlider1 = "assets/imgs/diagnotic.jpg";
-const imgSlider2 = "assets/imgs/delivery.jpg";
-const imgSlider3 = "assets/imgs/resultat.jpg";
+const imgSlider2 = "assets/imgs/orientation.jpg";
+const imgSlider3 = "assets/imgs/teleconsultation.jpeg";
 const deliveryIll = "assets/imgs/deliveryLocation.svg";
 const diagnostic2 = "assets/imgs/phonendoscope.svg";
 const resultat = "assets/imgs/deliveryLocation.svg";
@@ -22,42 +22,49 @@ List<SliderItem> contentSlidersItems = [
   SliderItem(
     urlImage: imgSlider1,
     textContent:
-        'Obtenez un diagnostic primale sur votre état de santé afin d etre redirigé vers une clinique adequate',
+        "Obtenez un diagnostic primale sur votre état de santé afin d'être redirigé vers une clinique adéquate",
     path: "",
-  ),
-  SliderItem(
-    urlImage: imgSlider2,
-    textContent:
-        'Faites vous livrer depuis chez vous vos médicaments sans avoir a vous deplacer vers une pharmacie',
-    path: "",
+    width: 300,
   ),
   SliderItem(
     urlImage: imgSlider3,
-    textContent: 'Obtenez les resultat de vos analyse medical depuis chez vous',
+    textContent:
+        'Faite vous consulter par un medecin specialiste tout en etant chez vous',
     path: "",
+    width: 300,
   ),
+  /*SliderItem(
+    urlImage: imgSlider2,
+    textContent:
+        'Faite vous orientez vers un centre de santé plus proche de vous',
+    path: "",
+    width: 300,
+  ),*/
 ];
 List<ItemSuscribe> contentSucribe = [
   ItemSuscribe(content: "Choisir une carte existant", icon: Icons.add_circle),
   ItemSuscribe(
-      content: "CPayer via une carte existante", icon: Icons.credit_card),
+      content: "Payer via une carte existante", icon: Icons.credit_card),
 ];
 
 List<SliderItem> gridCardItem = [
   SliderItem(
     urlImage: diagnostic2,
-    textContent: "Pre diagnostic",
+    textContent: "Pré-diagnostic",
     path: Consultation.routeName,
+    width: 300,
   ),
-  /* SliderItem(
+  /*SliderItem(
     urlImage: deliveryIll,
-    textContent: "Livraison",
+    textContent: " Orientation",
     path: Livraison.routeName,
+    width: 300,
   ),*/
   SliderItem(
     urlImage: resultat,
     textContent: "Téléconsultation",
     path: Teleconsultation.routeName,
+    width: 300,
   ),
 ];
 

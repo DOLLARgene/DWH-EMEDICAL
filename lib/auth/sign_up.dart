@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:emedical/components/custom_button.dart';
 import 'package:emedical/components/custom_textformfield.dart';
 import 'package:emedical/helpers/constant.dart';
@@ -16,77 +15,95 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text(
-                "Inscription",
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              SizedBox(height: 20.0),
-              CustomTextFormField(
-                htinText: "Nom",
-                inputType: InputType.text,
-              ),
-              SizedBox(height: 20.0),
-              CustomTextFormField(
-                htinText: "Prenoms",
-                inputType: InputType.text,
-              ),
-              Gap(20.0),
-              CustomTextFormField(
-                htinText: "email",
-                inputType: InputType.text,
-              ),
-              Gap(20.0),
-              CustomTextFormField(
-                prefixIcon: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "+229",
-                      style: TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.w900),
+          backgroundColor: Colors.blue.shade100,
+          body: Center(
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(
+            //     image: AssetImage("assets/imgs/IME.jpg"),
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
+            //padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 25.0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 30.0),
+                  Image(
+                    image: AssetImage("assets/imgs/logo_rose.png"),
+                    width: 250,
+                    height: 200,
+                  ),
+                  SizedBox(
+                    height: 50.0,
+                  ),
+                  Text(
+                    "Inscription",
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontFamily: montserratFamily,
                     ),
-                  ],
-                ),
-                htinText: "Telephone",
-                inputType: InputType.text,
-                inputFormaters: [FilteringTextInputFormatter.digitsOnly],
+                  ),
+                  SizedBox(height: 50.0),
+                  CustomTextFormField(
+                    htinText: "Nom",
+                    inputType: InputType.text,
+                  ),
+                  SizedBox(height: 25.0),
+                  CustomTextFormField(
+                    htinText: "Prenoms",
+                    inputType: InputType.text,
+                  ),
+                  Gap(25.0),
+                  CustomTextFormField(
+                    htinText: "email",
+                    inputType: InputType.text,
+                  ),
+                  Gap(25.0),
+                  CustomTextFormField(
+                    prefixIcon: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "+229",
+                          style: TextStyle(
+                              color: Colors.grey, fontWeight: FontWeight.w900),
+                        ),
+                      ],
+                    ),
+                    htinText: "Telephone",
+                    inputType: InputType.text,
+                    inputFormaters: [FilteringTextInputFormatter.digitsOnly],
+                  ),
+                  Gap(25.0),
+                  CustomTextFormField(
+                    htinText: "mot de passe",
+                    inputType: InputType.password,
+                  ),
+                  Gap(25.0),
+                  CustomTextFormField(
+                    htinText: "Confirmez votre mot de passe",
+                    inputType: InputType.password,
+                  ),
+                  Gap(50.0),
+                  CustomButton(
+                    buttonContent: "Valider",
+                    action: () {
+                      Navigator.of(context).pushNamed(HomeMedical.routeName);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50.0, vertical: 30.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)),
+                    ),
+                  ),
+                ],
               ),
-              Gap(20.0),
-              CustomTextFormField(
-                htinText: "mot de passe",
-                inputType: InputType.password,
-              ),
-              Gap(20.0),
-              CustomTextFormField(
-                htinText: "Confirmez votre mot de passe",
-                inputType: InputType.password,
-              ),
-              Gap(20.0),
-              CustomButton(
-                buttonContent: "Valider",
-                action: () {
-                  Navigator.of(context).pushNamed(HomeMedical.routeName);
-                },
-                style: ElevatedButton.styleFrom(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                ),
-              ),
-            ],
-          ),
-        ),
-      )),
+            ),
+          )),
     );
   }
 }

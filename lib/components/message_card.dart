@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class MessageCard extends StatefulWidget {
@@ -14,7 +12,7 @@ class _MessageCardState extends State<MessageCard> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
+      width: 180,
       child: Card(
         elevation: 10,
         child: Padding(

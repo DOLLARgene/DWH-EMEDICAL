@@ -2,12 +2,15 @@
     package="com.example.emedical">
    <application
         android:label="emedical"
-        android:name="${applicationName}"
+       android:name=".MainActivity">
         android:icon="@mipmap/ic_launcher">
-        <meta-data android.name="Com.google.android.geo.API_KEY" android.value="AIzaSyDqznfGUhqCvVVxWKSa5HyaxwVkxWrhiug"/>
+        <meta-data
+            android.name="Com.google.android.geo.API_KEY"
+            android.value="com.example.emedical.MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:label="@string/title_activity_main" >
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

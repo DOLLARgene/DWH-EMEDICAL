@@ -54,9 +54,11 @@ class AccueilPage extends StatelessWidget {
                             style: const TextStyle(
                               fontFamily: montserratFamily,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
+                              fontSize: 15.0,
                               color: Colors.black,
+                              overflow: TextOverflow.ellipsis,
                             ),
+                            maxLines: 3,
                           ),
                         ),
                       ],

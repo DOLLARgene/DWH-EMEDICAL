@@ -85,6 +85,12 @@ class _DoctorCardState extends State<DoctorCard> {
                             },
                             child: Row(
                               children: [
+                                // RichText(
+                                //   text: TextSpan(text: "20\$"),
+                                // ),
+                                // SizedBox(
+                                //   width: 15.0,
+                                // ),
                                 Text(
                                   "Discutez",
                                   style: TextStyle(

@@ -55,7 +55,18 @@ dev_dependencies:
 flutter_icons: 
   android: "launcher_icons"
   ios: true
-  image_path: "assets/imgs/logo.jpg"
+  image_path: "assets/imgs/logo_emedical.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+  web:
+    generate: true
+    image_path: "assets/imgs/logo_emedical.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "assets/imgs/logo_emedical.png"
+    icon_size: 50
   flutter_test:
     sdk: flutter
 

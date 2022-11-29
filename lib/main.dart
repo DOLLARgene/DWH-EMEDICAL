@@ -91,13 +91,19 @@ class _SplashScreenState extends State<SplashScreen> {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          color: Colors.blue,
+          color: Color.fromARGB(255, 255, 255, 255),
           alignment: Alignment.center,
-          child: Icon(
-            Icons.health_and_safety_outlined,
-            color: Colors.black,
-            size: 150,
+          child: Image(
+            image: AssetImage("assets/imgs/logo_emedical.png"),
+            // width: 300,
+            // height: 250,
+            fit: BoxFit.contain,
           ),
+          // child: Icon(
+          //   Icons.health_and_safety_outlined,
+          //   color: Colors.black,
+          //   size: 150,
+          // ),
         ),
       ),
     );

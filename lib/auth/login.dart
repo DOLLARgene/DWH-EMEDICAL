@@ -16,25 +16,31 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.pink.shade100,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              SizedBox(
+                height: 50.0,
+              ),
               Text(
-                "Page de connexion",
-                style: TextStyle(color: Colors.blue, fontSize: 28.0),
+                "Connexion",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 28.0,
+                    fontFamily: montserratFamily,
+                    fontWeight: FontWeight.w900),
               ),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(height: 30.0),
-                  Text(
-                    'Connexion',
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w700,
-                        fontFamily: montserratFamily),
+                  Image(
+                    image: AssetImage("assets/imgs/logo_emedical.png"),
+                    width: 250,
+                    height: 200,
                   ),
                   SizedBox(
                     height: 40,
@@ -55,7 +61,7 @@ class Login extends StatelessWidget {
                             .pushNamed(ForgetPassword.routeName);
                       },
                       child: Text(
-                        'Mots de passe oublié',
+                        'Mot de passe oublié ?',
                         style: TextStyle(
                           fontFamily: montserratFamily,
                           fontWeight: FontWeight.w600,
@@ -79,9 +85,9 @@ class Login extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 25,
                   ),
-                  Text("OU"),
+                  Text("Ou"),
                   SizedBox(
                     height: 20,
                   ),
@@ -90,7 +96,7 @@ class Login extends StatelessWidget {
                     action: () {},
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
-                          horizontal: 40.0, vertical: 20.0),
+                          horizontal: 40.0, vertical: 25.0),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
                     ),
@@ -102,6 +108,12 @@ class Login extends StatelessWidget {
                   Navigator.of(context).pushNamed(SignUp.routeName);
                 },
                 child: Text('Pas de compte? Inscrivez-vous.'),
+                style: ElevatedButton.styleFrom(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 40.0, vertical: 20.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                ),
               ),
               Gap(20),
             ],
